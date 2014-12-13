@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.dropzone{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid black;}
+.container{width:500px;}
+</style>
+<script>
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) { <!-- What to drag -->
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+
+<div id="1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="1.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+
+<div id="2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="2.gif" draggable="true" ondragstart="drag(event)" id="drag2" width="88" height="31">
+</div>
+
+<div id="3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="3.gif" draggable="true" ondragstart="drag(event)" id="drag3" width="88" height="31">
+</div>
+
+<div id="4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="4.gif" draggable="true" ondragstart="drag(event)" id="drag4" width="88" height="31">
+</div>
+
+<div id="5" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="5.gif" draggable="true" ondragstart="drag(event)" id="drag5" width="88" height="31">
+</div>
+
+<div id="6" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="6.gif" draggable="true" ondragstart="drag(event)" id="drag6" width="88" height="31">
+</div>
+
+<div id="7" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="7.gif" draggable="true" ondragstart="drag(event)" id="drag7" width="88" height="31">
+</div>
+
+<div id="8" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="8.gif" draggable="true" ondragstart="drag(event)" id="drag8" width="88" height="31">
+</div>
+
+<div id="9" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="9.gif" draggable="true" ondragstart="drag(event)" id="drag9" width="88" height="31">
+</div>
+
+</div>
+</body>
+</html>
+
