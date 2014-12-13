@@ -4,7 +4,7 @@ import os
 
 class Gallery(models.Model):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True)
 
     class Meta:
         db_table = 'galleries'
@@ -34,9 +34,9 @@ class Image(models.Model):
 
     def thumbnail(self):
         file, ext = os.path.splitext(self.image.url)
-        if ext == (".jpg" or ".JPG" or ".jpeg" or ".JPEG"):
+        if ext in (".jpg", ".JPG", ".jpeg", ".JPEG"):
             return mark_safe(file + " thumbnail.jpg")
-        elif ext == (".png" or ".PNG"):
+        elif ext in (".png", ".PNG"):
             return mark_safe(file + " thumbnail.png")
 
 from django.db.models.signals import post_delete 
