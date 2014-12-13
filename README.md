@@ -2,17 +2,44 @@
 
 A Django app which makes image galleries that may be added to any template.
 
-## REQUIREMENTS
-Django 1.7+, Pillow
-
-## USAGE
 You don't have to make or manage any complicated relationships with your models. Create a gallery, add your images, then display them on any page by using a template tag. 
 
-Add this to your Django Settings File:
-GALLERIES_THUMBNAIL_SIZE = (200,200)
+This project is new so there'll be quite a bit of changes. I'll document these changes as well as I can.
 
+## REQUIREMENTS
+Django 1.7+, Pillow, and a database configured.
+
+## INSTALLATION
+Make sure you have specified MEDIA_ROOT and MEDIA_URL in your Django Settings File.
+
+settings.py
+```Python
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'galleries',
+)
+GALLERIES_THUMBNAIL_SIZE = (200,200)
+```
+
+urls.py
+```Python
+import galleries
+...
+    # Make sure the following line is above the "include admin.site.urls" line
+    url(r'^admin/galleries/generate-thumbnails/', include('galleries.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+```
 Run the migrations
+```
 ./manage.py migrate
+```
+## USAGE
+
 
 ### Django Template of Your Page Using get_gallery Template Tag
 ```HTML+Django
