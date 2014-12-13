@@ -34,9 +34,9 @@ class Command(BaseCommand):
 
                     i = i.crop((left, upper, right, lower))
                     i.thumbnail(settings.GALLERIES_THUMBNAIL_SIZE, Imager.ANTIALIAS)
-                    if ext == (".jpg" or ".JPG" or ".jpeg" or ".JPEG"):
+                    if ext == in (".jpg", ".JPG", ".jpeg", ".JPEG"):
                         i.save(file + " thumbnail.jpg") 
-                    elif ext == (".png" or ".PNG"):
+                    elif ext == in (".png", ".PNG"):
                         i.save(file + " thumbnail.png")
             except Gallery.DoesNotExist:
                 raise CommandError('Gallery "%s" does not exist' % gallery_id)
